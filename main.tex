@@ -1,0 +1,67 @@
+%! TEX program = xelatex
+\documentclass[12pt, twoside]{article}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=4cm, right=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{natbib}
+\renewcommand{\bibname}{\centering References}
+\usepackage{graphicx}
+\usepackage{xeCJK}  
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5in}
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bfseries\centering}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\usepackage{booktabs, caption}
+\usepackage{tikz}
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+\captionsetup[table]{textfont=it,format=plain,justification=justified, 
+	singlelinecheck=false,labelsep=spaced,skip=0pt}
+\captionsetup[figure]{labelsep=period,labelfont=it,justification=justified, 
+	singlelinecheck=false,font=doublespacing}
+\setCJKmainfont{PMingLiU}
+\setmainfont{Times New Roman}
+
+% Begin the document
+
+\begin{document}
+
+    \doublespacing
+    \include{Title/coverpage.tex}
+    \newpage
+
+    % Acknowledgements
+    \pagenumbering{roman}
+    \include{Title/acknowledgements.tex}
+    \include{Title/abstract.tex}
+    \include{Title/declaration.tex}
+
+    % ToC
+    \renewcommand*\contentsname{\centering Table of Contents}
+    \tableofcontents
+    \newpage
+    
+    \renewcommand{\listtablename}{\centering List of Tables}
+    \listoftables
+    \addcontentsline{toc}{section}{List of Tables}
+    \newpage
+    
+    \renewcommand{\listfigurename}{\centering List of Figures}
+    \listoffigures
+    \addcontentsline{toc}{section}{List of Figures}
+    \newpage
+
+    % include your chapters here. 
+    \pagenumbering{arabic}
+    \include{Ch1/ch1.tex}
+    \newpage
+    
+    % include{Ch2/ch2.tex}
+    % \newpage
+    
+    \bibliography{references}
+    \addcontentsline{toc}{section}{References}
+    \bibliographystyle{apalike}
+
+\end{document}
